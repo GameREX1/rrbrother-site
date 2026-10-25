@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
 <title>RR Brothers | Online Store</title>
 <meta name="description" content="RR Brothers - Quality products at great prices. Shop online with easy ordering and Cash on Delivery.">
 <meta name="keywords" content="RR Brothers, online store, Pakistan, shopping, shoes, wallets, watches, shirts">
 <meta name="author" content="RR Brothers">
 <meta name="robots" content="index, follow">
-<link rel="icon" type="image/png" href="rrbrothers%20logo.png">
-<link rel="shortcut icon" type="image/png" href="rrbrothers%20logo.png">
-<link rel="apple-touch-icon" href="rrbrothers%20logo.png">
+<link rel="icon" type="image/png" href="/rrbrothers%20logo.png">
+<link rel="shortcut icon" type="image/png" href="/rrbrothers%20logo.png">
+<link rel="apple-touch-icon" href="/rrbrothers%20logo.png">
 <meta property="og:title" content="RR Brothers | Online Store">
 <meta property="og:description" content="Quality products. Great prices. Easy ordering.">
-<meta property="og:image" content="rrbrothers%20logo.png">
+<meta property="og:image" content="/rrbrothers%20logo.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RR Brothers">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,51 +22,793 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Poppins',sans-serif;background:#000;color:#fff}header{background:#000;color:#fff;padding:12px 6%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20;border-bottom:1px solid #222}.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}.logo-image{width:52px;height:52px;object-fit:contain;display:block;border-radius:8px}.logo-text{font-size:22px;font-weight:800;letter-spacing:.5px}nav a{color:#fff;text-decoration:none;margin:0 10px;font-size:14px}.cart-btn,.auth-btn{background:#fff;color:#000;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-family:inherit}.header-actions{display:flex;align-items:center;gap:8px}.admin-btn{display:none;background:#fff;color:#000;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-family:inherit}.hero{padding:110px 8%;text-align:center;background:#000;border-bottom:1px solid #222}.hero h1{font-size:55px;margin:0 0 15px;font-weight:800}.hero p{font-size:18px;color:#aaa}.shop-btn{display:inline-block;background:#fff;color:#000;padding:14px 28px;border-radius:8px;text-decoration:none;margin-top:15px;font-weight:700}section{padding:70px 7%}h2{text-align:center;font-size:36px;margin-bottom:40px}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.product{background:#111;border:1px solid #222;border-radius:14px;padding:18px;text-align:center;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);border-color:#444}.product-image{width:100%;height:230px;object-fit:cover;border-radius:10px;background:#1a1a1a;display:block}.product h3{margin:18px 0 5px;font-size:18px}.description{color:#999;font-size:13px;min-height:38px}.price{font-size:20px;font-weight:700;margin:12px}.category{color:#888;font-size:12px;margin-bottom:10px}.option-label{display:block;text-align:left;color:#aaa;font-size:12px;margin:8px 0 4px}.option-select{width:100%;padding:10px;background:#151515;color:#fff;border:1px solid #333;border-radius:7px;font-family:inherit}.add{background:#fff;color:#000;border:0;padding:11px 20px;border-radius:7px;cursor:pointer;font-family:inherit;font-weight:700;width:100%;margin-top:10px}.loading,.no-products{text-align:center;color:#aaa;grid-column:1/-1;padding:40px}.contact{background:#050505;color:#fff;text-align:center;border-top:1px solid #222;border-bottom:1px solid #222}.contact p{color:#aaa}footer{background:#000;color:#666;text-align:center;padding:25px}#cartBox{display:none;position:fixed;right:0;top:0;width:420px;max-width:100%;height:100%;background:#0b0b0b;color:#fff;z-index:50;padding:25px;overflow-y:auto;box-shadow:-5px 0 20px #000;border-left:1px solid #222}.close-btn{background:#222;color:#fff;border:0;padding:9px 14px;border-radius:7px;cursor:pointer;font-family:inherit}.cart-item{border-bottom:1px solid #333;padding:15px 0}.cart-options{color:#aaa;font-size:13px;margin-top:5px}.quantity{display:flex;align-items:center;gap:10px;margin-top:10px}.quantity button{border:0;background:#fff;color:#000;width:30px;height:30px;border-radius:5px;cursor:pointer;font-weight:bold}.remove{background:#b91c1c!important;color:#fff!important;width:auto!important;padding:5px 10px}.checkout-btn{width:100%;background:#fff;color:#000;border:0;padding:14px;border-radius:8px;cursor:pointer;font-size:16px;font-family:inherit;font-weight:700;margin-top:10px}#checkoutBox,#authBox,#adminBox{display:none;position:fixed;inset:0;background:#000e;z-index:60;overflow-y:auto;padding:30px 15px}.checkout-card,.auth-card,.admin-card{background:#0d0d0d;color:#fff;border:1px solid #333;max-width:650px;margin:auto;border-radius:14px;padding:25px}.input{width:100%;padding:13px;margin:7px 0;background:#151515;color:#fff;border:1px solid #333;border-radius:7px;font-size:15px;font-family:inherit}.input::placeholder{color:#777}.order-summary{background:#151515;padding:15px;border-radius:8px;margin:15px 0}.payment{border:1px solid #444;border-radius:8px;padding:15px;margin:15px 0}.payment p{color:#fff}.place-order{width:100%;background:#fff;color:#000;border:0;padding:15px;border-radius:8px;cursor:pointer;font-size:17px;font-family:inherit;font-weight:700}.cancel{width:100%;background:#222;color:#fff;border:0;padding:12px;border-radius:8px;cursor:pointer;margin-top:8px;font-family:inherit}.success-icon{font-size:70px;text-align:center}.admin-card{max-width:720px}.admin-card h2{text-align:left;margin-top:0}.admin-note{color:#aaa;font-size:13px}.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.chip{background:#222;border:1px solid #444;border-radius:20px;padding:6px 10px;font-size:13px}.chip button{background:none;border:0;color:#fff;cursor:pointer;margin-left:5px}.add-row{display:flex;gap:8px}.add-row .input{margin:0}.admin-submit{width:100%;background:#fff;color:#000;border:0;padding:14px;border-radius:8px;cursor:pointer;font-weight:700;font-family:inherit;margin-top:12px}.divider{border:0;border-top:1px solid #333;margin:20px 0}.small-btn{background:#222;color:#fff;border:0;padding:10px 12px;border-radius:7px;cursor:pointer;font-family:inherit}.admin-products{margin-top:20px}.admin-product-row{border:1px solid #333;padding:12px;border-radius:8px;margin:8px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}.danger{background:#b91c1c!important;color:#fff!important}.modal-top{display:flex;justify-content:space-between;align-items:center}.modal-top h2{margin:0;text-align:left}.hint{color:#888;font-size:12px}.auth-status{color:#aaa;font-size:13px}.toggle-link{color:#fff;text-decoration:underline;cursor:pointer}.hidden{display:none!important}#successBox{display:none;text-align:center;padding:40px 20px}@media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}nav{display:none}.hero h1{font-size:40px}.header-actions .auth-btn{display:none}.admin-btn{font-size:12px;padding:9px}.cart-btn{font-size:12px;padding:9px}}@media(max-width:500px){.products{grid-template-columns:1fr}header{padding:10px 15px}.logo-image{width:42px;height:42px}.logo-text{font-size:18px}.hero{padding:70px 20px}.hero h1{font-size:35px}section{padding:50px 20px}.header-actions{gap:5px}.admin-btn{padding:8px}.cart-btn{padding:8px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Poppins',sans-serif;background:#000;color:#fff}
+a{color:inherit}
+header{background:#000;color:#fff;padding:12px 6%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20;border-bottom:1px solid #222}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.logo-image{width:52px;height:52px;object-fit:contain;display:block;border-radius:8px}
+.logo-text{font-size:22px;font-weight:800;letter-spacing:.5px}
+nav a{color:#fff;text-decoration:none;margin:0 10px;font-size:14px}
+.cart-btn,.auth-btn{background:#fff;color:#000;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-family:inherit}
+.header-actions{display:flex;align-items:center;gap:8px}
+.admin-btn{display:none;background:#fff;color:#000;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-family:inherit}
+.hero{padding:110px 8%;text-align:center;background:#000;border-bottom:1px solid #222}
+.hero h1{font-size:55px;margin:0 0 15px;font-weight:800}
+.hero p{font-size:18px;color:#aaa}
+.shop-btn{display:inline-block;background:#fff;color:#000;padding:14px 28px;border-radius:8px;text-decoration:none;margin-top:15px;font-weight:700}
+section{padding:70px 7%}
+h2{text-align:center;font-size:36px;margin-bottom:40px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.product{background:#111;border:1px solid #222;border-radius:14px;padding:18px;text-align:center;overflow:hidden;transition:.2s}
+.product:hover{transform:translateY(-4px);border-color:#00d9ff}
+.product-link{display:block;text-decoration:none}
+.product-image{width:100%;height:230px;object-fit:cover;border-radius:10px;background:#1a1a1a;display:block}
+.product h3{margin:18px 0 5px;font-size:18px}
+.description{color:#999;font-size:13px;min-height:38px}
+.price{font-size:20px;font-weight:700;margin:12px}
+.category{color:#888;font-size:12px;margin-bottom:10px}
+.option-label{display:block;text-align:left;color:#aaa;font-size:12px;margin:8px 0 4px}
+.option-select{width:100%;padding:10px;background:#151515;color:#fff;border:1px solid #333;border-radius:7px;font-family:inherit}
+.add{background:#fff;color:#000;border:0;padding:11px 20px;border-radius:7px;cursor:pointer;font-family:inherit;font-weight:700;width:100%;margin-top:10px}
+.loading,.no-products{text-align:center;color:#aaa;grid-column:1/-1;padding:40px}
+.contact{background:#050505;color:#fff;text-align:center;border-top:1px solid #222;border-bottom:1px solid #222}
+.contact p{color:#aaa}
+footer{background:#000;color:#666;text-align:center;padding:25px}
+#cartBox{display:none;position:fixed;right:0;top:0;width:420px;max-width:100%;height:100%;background:#0b0b0b;color:#fff;z-index:50;padding:25px;overflow-y:auto;box-shadow:-5px 0 20px #000;border-left:1px solid #222}
+.close-btn{background:#222;color:#fff;border:0;padding:9px 14px;border-radius:7px;cursor:pointer;font-family:inherit}
+.cart-item{border-bottom:1px solid #333;padding:15px 0}
+.cart-options{color:#aaa;font-size:13px;margin-top:5px}
+.quantity{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.quantity button{border:0;background:#fff;color:#000;min-width:30px;height:30px;border-radius:5px;cursor:pointer;font-weight:bold}
+.remove{background:#b91c1c!important;color:#fff!important;width:auto!important;padding:5px 10px}
+.checkout-btn{width:100%;background:#fff;color:#000;border:0;padding:14px;border-radius:8px;cursor:pointer;font-size:16px;font-family:inherit;font-weight:700;margin-top:10px}
+.whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:#25d366;color:#052b13;border:0;padding:13px;border-radius:8px;text-decoration:none;font-family:inherit;font-weight:700;margin-top:10px}
+#checkoutBox,#authBox,#adminBox{display:none;position:fixed;inset:0;background:#000e;z-index:60;overflow-y:auto;padding:30px 15px}
+.checkout-card,.auth-card,.admin-card{background:#0d0d0d;color:#fff;border:1px solid #333;max-width:650px;margin:auto;border-radius:14px;padding:25px}
+.input{width:100%;padding:13px;margin:7px 0;background:#151515;color:#fff;border:1px solid #333;border-radius:7px;font-size:15px;font-family:inherit}
+.input::placeholder{color:#777}
+.order-summary{background:#151515;padding:15px;border-radius:8px;margin:15px 0}
+.payment{border:1px solid #444;border-radius:8px;padding:15px;margin:15px 0}
+.payment p{color:#fff}
+.place-order{width:100%;background:#fff;color:#000;border:0;padding:15px;border-radius:8px;cursor:pointer;font-size:17px;font-family:inherit;font-weight:700}
+.cancel{width:100%;background:#222;color:#fff;border:0;padding:12px;border-radius:8px;cursor:pointer;margin-top:8px;font-family:inherit}
+.success-icon{font-size:70px;text-align:center}
+.admin-card{max-width:720px}
+.admin-card h2{text-align:left;margin-top:0}
+.admin-note{color:#aaa;font-size:13px}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{background:#222;border:1px solid #444;border-radius:20px;padding:6px 10px;font-size:13px}
+.chip button{background:none;border:0;color:#fff;cursor:pointer;margin-left:5px}
+.add-row{display:flex;gap:8px}
+.add-row .input{margin:0}
+.admin-submit{width:100%;background:#fff;color:#000;border:0;padding:14px;border-radius:8px;cursor:pointer;font-weight:700;font-family:inherit;margin-top:12px}
+.divider{border:0;border-top:1px solid #333;margin:20px 0}
+.small-btn{background:#222;color:#fff;border:0;padding:10px 12px;border-radius:7px;cursor:pointer;font-family:inherit}
+.admin-products{margin-top:20px}
+.admin-product-row{border:1px solid #333;padding:12px;border-radius:8px;margin:8px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.danger{background:#b91c1c!important;color:#fff!important}
+.modal-top{display:flex;justify-content:space-between;align-items:center}
+.modal-top h2{margin:0;text-align:left}
+.hint{color:#888;font-size:12px}
+.auth-status{color:#aaa;font-size:13px}
+.toggle-link{color:#fff;text-decoration:underline;cursor:pointer}
+.hidden{display:none!important}
+#successBox{display:none;text-align:center;padding:40px 20px}
+#productDetail{padding-top:36px;min-height:65vh}
+.detail-back{display:inline-block;text-decoration:none;color:#00d9ff;margin-bottom:22px}
+.detail-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start;max-width:1100px;margin:auto}
+.detail-image{width:100%;max-height:570px;object-fit:contain;background:#111;border:1px solid #262626;border-radius:16px;padding:12px}
+.detail-info{background:#0b0b0b;border:1px solid #242424;border-radius:16px;padding:28px}
+.detail-info h1{font-size:34px;margin:0 0 8px}
+.detail-info .price{font-size:28px;margin:18px 0}
+.detail-info .description{font-size:14px;line-height:1.8;min-height:0;margin:16px 0}
+.detail-category{color:#00d9ff;font-size:13px}
+.detail-info .option-select{margin-bottom:10px}
+.detail-quantity{display:flex;align-items:center;gap:12px;margin:14px 0}
+.detail-quantity button{width:34px;height:34px;background:#222;color:#fff;border:1px solid #444;border-radius:6px;cursor:pointer}
+.detail-quantity span{min-width:24px;text-align:center}
+.detail-info .add{padding:14px}
+.not-found{text-align:center;max-width:600px;margin:40px auto;padding:40px 20px;background:#101010;border:1px solid #262626;border-radius:16px}
+.not-found a{display:inline-block;margin-top:12px;background:#fff;color:#000;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700}
+@media(max-width:800px){
+.products{grid-template-columns:repeat(2,1fr)}
+nav{display:none}
+.hero h1{font-size:40px}
+.header-actions .auth-btn{display:none}
+.admin-btn{font-size:12px;padding:9px}
+.cart-btn{font-size:12px;padding:9px}
+.detail-layout{grid-template-columns:1fr;gap:22px}
+.detail-image{max-height:420px}
+.detail-info h1{font-size:28px}
+}
+@media(max-width:500px){
+.products{grid-template-columns:1fr}
+header{padding:10px 15px}
+.logo-image{width:42px;height:42px}
+.logo-text{font-size:18px}
+.hero{padding:70px 20px}
+.hero h1{font-size:35px}
+section{padding:50px 20px}
+.header-actions{gap:5px}
+.admin-btn{padding:8px}
+.cart-btn{padding:8px}
+.detail-info{padding:20px}
+#productDetail{padding-top:24px}
+}
 </style>
 </head>
 <body>
 <header>
-<a href="#home" class="logo"><img class="logo-image" src="rrbrothers%20logo.png" alt="RR Brothers Logo"><div class="logo-text">RR Brothers</div></a>
-<nav><a href="#home">Home</a><a href="#products">Products</a><a href="#contact">Contact</a></nav>
+<a href="/" class="logo" onclick="goHome(event)"><img class="logo-image" src="/rrbrothers%20logo.png" alt="RR Brothers Logo"><div class="logo-text">RR Brothers</div></a>
+<nav><a href="/#home" onclick="goHome(event)">Home</a><a href="/#products" onclick="goHome(event,'products')">Products</a><a href="/#contact" onclick="goHome(event,'contact')">Contact</a></nav>
 <div class="header-actions"><button id="adminButton" class="admin-btn" onclick="openAdmin()">Admin Panel</button><button class="cart-btn" onclick="openCart()">Cart (<span id="count">0</span>)</button></div>
 </header>
-<section class="hero" id="home"><h1>Welcome to RR Brothers</h1><p>Quality products. Great prices. Easy ordering.</p><a href="#products" class="shop-btn">Shop Now</a></section>
-<section id="products"><h2>Our Products</h2><div class="products" id="productsContainer"><div class="loading">Loading products...</div></div></section>
-<section class="contact" id="contact"><h2>Contact RR Brothers</h2><p>Thank you for shopping with RR Brothers.</p></section>
+
+<section class="hero" id="home">
+<h1>Welcome to RR Brothers</h1>
+<p>Quality products. Great prices. Easy ordering.</p>
+<a href="#products" class="shop-btn" onclick="showHomeSection('products')">Shop Now</a>
+</section>
+
+<section id="products">
+<h2>Our Products</h2>
+<div class="products" id="productsContainer"><div class="loading">Loading products...</div></div>
+</section>
+
+<section id="productDetail" class="hidden" aria-live="polite"></section>
+
+<section class="contact" id="contact">
+<h2>Contact RR Brothers</h2>
+<p>Thank you for shopping with RR Brothers.</p>
+<a class="whatsapp-btn" style="max-width:280px;margin:18px auto" href="https://wa.me/923315328070" target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a>
+</section>
+
 <footer>© 2026 RR Brothers. All Rights Reserved.</footer>
-<div id="cartBox"><button class="close-btn" onclick="closeCart()">Close</button><h2>Your Cart</h2><div id="items"></div><h3>Total: Rs. <span id="total">0</span></h3><button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button></div>
-<div id="checkoutBox"><div class="checkout-card"><div id="checkoutContent"><div class="modal-top"><h2>Checkout</h2><button class="close-btn" onclick="closeCheckout()">Close</button></div><p>Please enter your delivery details.</p><input id="name" class="input" placeholder="Full Name"><input id="phone" class="input" placeholder="Phone Number" type="tel"><input id="city" class="input" placeholder="City"><textarea id="address" class="input" placeholder="Complete Delivery Address" rows="4"></textarea><div class="order-summary"><h3>Order Summary</h3><div id="checkoutItems"></div><hr><strong>Total: Rs. <span id="checkoutTotal">0</span></strong></div><div class="payment"><strong>Payment Method</strong><p>Cash on Delivery</p><small>Pay when your order is delivered to you.</small></div><button class="place-order" onclick="placeOrder()">Place Order</button><button class="cancel" onclick="closeCheckout()">Cancel</button></div><div id="successBox"><div class="success-icon">✓</div><h2>Order Placed!</h2><p>Thank you for shopping with RR Brothers.</p><p>Your order has been received successfully.</p><strong>Payment: Cash on Delivery</strong><br><br><button class="checkout-btn" onclick="finishOrder()">Continue Shopping</button></div></div></div>
- <div id="adminBox"><div class="admin-card"><div class="modal-top"><h2>Admin Panel</h2><button class="close-btn" onclick="closeAdmin()">Close</button></div><p class="admin-note">Admin account: uk7186979@gmail.com</p><hr class="divider"><input id="productName" class="input" placeholder="Product Name"><input id="productCategory" class="input" placeholder="Category (e.g. Shoes)"><input id="productPrice" class="input" type="number" min="0" placeholder="Price"><textarea id="productDescription" class="input" rows="3" placeholder="Product Description"></textarea><label class="option-label">Sizes</label><div class="add-row"><input id="sizeInput" class="input" placeholder="e.g. 5, 6, S, M, XL"><button class="small-btn" onclick="addSize()">Add Size</button></div><div id="sizeChips" class="chip-row"></div><label class="option-label">Colors</label><div class="add-row"><input id="colorInput" class="input" placeholder="e.g. Black, White, Blue"><button class="small-btn" onclick="addColor()">Add Color</button></div><div id="colorChips" class="chip-row"></div><label class="option-label">Product Image</label><input id="productImage" class="input" type="file" accept="image/*"><button class="admin-submit" onclick="addProduct()">Add Product</button><hr class="divider"><h3>Current Products</h3><div id="adminProducts" class="admin-products">Loading...</div></div></div>
+
+<div id="cartBox">
+<button class="close-btn" onclick="closeCart()">Close</button>
+<h2>Your Cart</h2>
+<div id="items"></div>
+<h3>Total: Rs. <span id="total">0</span></h3>
+<button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+<a class="whatsapp-btn" href="https://wa.me/923315328070" target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a>
+<p class="hint">For questions about products or orders, message RR Brothers on WhatsApp.</p>
+</div>
+
+<div id="checkoutBox">
+<div class="checkout-card">
+<div id="checkoutContent">
+<div class="modal-top"><h2>Checkout</h2><button class="close-btn" onclick="closeCheckout()">Close</button></div>
+<p>Please enter your delivery details.</p>
+<input id="name" class="input" placeholder="Full Name" autocomplete="name">
+<input id="phone" class="input" placeholder="Phone Number" type="tel" autocomplete="tel">
+<input id="city" class="input" placeholder="City" autocomplete="address-level2">
+<textarea id="address" class="input" placeholder="Complete Delivery Address" rows="4" autocomplete="street-address"></textarea>
+<div class="order-summary">
+<h3>Order Summary</h3>
+<div id="checkoutItems"></div>
+<hr>
+<strong>Total: Rs. <span id="checkoutTotal">0</span></strong>
+</div>
+<div class="payment"><strong>Payment Method</strong><p>Cash on Delivery</p><small>Pay when your order is delivered to you.</small></div>
+<button class="place-order" onclick="placeOrder()">Place Order</button>
+<button class="cancel" onclick="closeCheckout()">Cancel</button>
+</div>
+<div id="successBox">
+<div class="success-icon">✓</div>
+<h2>Order Placed!</h2>
+<p>Thank you for shopping with RR Brothers.</p>
+<p>Your order has been received successfully.</p>
+<strong>Payment: Cash on Delivery</strong><br><br>
+<button class="checkout-btn" onclick="finishOrder()">Continue Shopping</button>
+</div>
+</div>
+</div>
+
+<div id="adminBox">
+<div class="admin-card">
+<div class="modal-top"><h2>Admin Panel</h2><button class="close-btn" onclick="closeAdmin()">Close</button></div>
+<p class="admin-note">Admin account: uk7186979@gmail.com</p>
+<hr class="divider">
+<input id="productName" class="input" placeholder="Product Name">
+<input id="productCategory" class="input" placeholder="Category (e.g. Shoes)">
+<input id="productPrice" class="input" type="number" min="0" placeholder="Price">
+<textarea id="productDescription" class="input" rows="3" placeholder="Product Description"></textarea>
+<label class="option-label">Sizes</label>
+<div class="add-row"><input id="sizeInput" class="input" placeholder="e.g. 5, 6, S, M, XL"><button class="small-btn" onclick="addSize()">Add Size</button></div>
+<div id="sizeChips" class="chip-row"></div>
+<label class="option-label">Colors</label>
+<div class="add-row"><input id="colorInput" class="input" placeholder="e.g. Black, White, Blue"><button class="small-btn" onclick="addColor()">Add Color</button></div>
+<div id="colorChips" class="chip-row"></div>
+<label class="option-label">Product Image</label>
+<input id="productImage" class="input" type="file" accept="image/*">
+<button class="admin-submit" onclick="addProduct()">Add Product</button>
+<hr class="divider">
+<h3>Current Products</h3>
+<div id="adminProducts" class="admin-products">Loading...</div>
+</div>
+</div>
+
 <script>
 const SUPABASE_URL="https://dlftlmfhomjhoircgock.supabase.co";
 const SUPABASE_KEY="sb_publishable_2593EsVFGcdAUweHtSIpXQ_95bWthWi";
 const ADMIN_EMAIL="uk7186979@gmail.com";
+const WHATSAPP_NUMBER="923315328070";
 const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-let cart=[];let authMode="login";let sizes=[];let colors=[];
-function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
-function arr(v){return Array.isArray(v)?v:(typeof v==='string'&&v.trim()?v.split(',').map(x=>x.trim()).filter(Boolean):[])}
-async function loadProducts(){const container=document.getElementById("productsContainer");try{const {data,error}=await supabaseClient.from("products").select("*").order("created_at",{ascending:false});if(error){console.error(error);container.innerHTML='<div class="no-products">Unable to load products.</div>';return}if(!data||!data.length){container.innerHTML='<div class="no-products">No products available yet.</div>';return}container.innerHTML="";data.forEach(product=>{const image=product.image_url||"https://via.placeholder.com/600x500/111111/ffffff?text=RR+Brothers";const ps=arr(product.sizes),pc=arr(product.colors),price=Number(product.price||0);const card=document.createElement("div");card.className="product";let sizeHtml=ps.length?`<label class="option-label">Size</label><select class="option-select size-select"><option value="">Select Size</option>${ps.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("")}</select>`:"";let colorHtml=pc.length?`<label class="option-label">Color</label><select class="option-select color-select"><option value="">Select Color</option>${pc.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("")}</select>`:"";card.innerHTML=`<img class="product-image" src="${esc(image)}" alt="${esc(product.name||'Product')}" onerror="this.src='https://via.placeholder.com/600x500/111111/ffffff?text=RR+Brothers'"><h3>${esc(product.name||"Product")}</h3><div class="category">${esc(product.category||"")}</div><div class="description">${esc(product.description||"")}</div><div class="price">Rs. ${price.toLocaleString()}</div>${sizeHtml}${colorHtml}<button class="add">Add to Cart</button>`;card.querySelector(".add").addEventListener("click",()=>{const size=card.querySelector(".size-select")?.value||"";const color=card.querySelector(".color-select")?.value||"";if(ps.length&&!size){alert("Please select a size.");return}if(pc.length&&!color){alert("Please select a color.");return}addToCart(product.name,price,size,color)});container.appendChild(card)})}catch(e){console.error(e);container.innerHTML='<div class="no-products">Connection error. Please try again.</div>'}}
-function addToCart(name,price,size="",color=""){let existing=cart.find(x=>x.name===name&&x.size===size&&x.color===color);if(existing)existing.quantity++;else cart.push({name,price,size,color,quantity:1});updateCart();alert(name+" added to cart!")}
-function updateCart(){let count=0,total=0;cart.forEach(i=>{count+=i.quantity;total+=i.price*i.quantity});document.getElementById("count").innerText=count;document.getElementById("total").innerText=total.toLocaleString()}
-function openCart(){let html="";if(!cart.length)html="<p>Your cart is empty.</p>";else cart.forEach((item,index)=>{html+=`<div class="cart-item"><strong>${esc(item.name)}</strong><br>Rs. ${item.price.toLocaleString()}${item.size?`<div class="cart-options">Size: ${esc(item.size)}</div>`:""}${item.color?`<div class="cart-options">Color: ${esc(item.color)}</div>`:""}<div class="quantity"><button onclick="changeQuantity(${index},-1)">−</button><span>${item.quantity}</span><button onclick="changeQuantity(${index},1)">+</button><button class="remove" onclick="removeItem(${index})">Remove</button></div></div>`});document.getElementById("items").innerHTML=html;document.getElementById("cartBox").style.display="block";updateCart()}
-function closeCart(){document.getElementById("cartBox").style.display="none"}
-function changeQuantity(index,change){cart[index].quantity+=change;if(cart[index].quantity<=0)cart.splice(index,1);updateCart();openCart()}
-function removeItem(index){cart.splice(index,1);updateCart();openCart()}
-function openCheckout(){if(!cart.length){alert("Your cart is empty!");return}let html="",total=0;cart.forEach(i=>{let sub=i.price*i.quantity;total+=sub;html+=`<p><strong>${esc(i.name)}</strong> × ${i.quantity}${i.size?`<br>Size: ${esc(i.size)}`:""}${i.color?`<br>Color: ${esc(i.color)}`:""}<br><strong>Rs. ${sub.toLocaleString()}</strong></p>`});document.getElementById("checkoutItems").innerHTML=html;document.getElementById("checkoutTotal").innerText=total.toLocaleString();document.getElementById("checkoutBox").style.display="block";closeCart()}
-function closeCheckout(){document.getElementById("checkoutBox").style.display="none"}
-async function placeOrder(){const name=document.getElementById("name").value.trim(),phone=document.getElementById("phone").value.trim(),city=document.getElementById("city").value.trim(),address=document.getElementById("address").value.trim();if(!name||!phone||!city||!address){alert("Please fill in all delivery details.");return}if(phone.length<10){alert("Please enter a valid phone number.");return}let total=cart.reduce((s,i)=>s+i.price*i.quantity,0);try{let payload={name,phone,city,address,total,status:"new",items:cart};let result=await supabaseClient.from("orders").insert(payload);if(result.error&&String(result.error.message||"").toLowerCase().includes("items")){delete payload.items;result=await supabaseClient.from("orders").insert(payload)}if(result.error){console.error(result.error);alert("Unable to save your order. Please try again.");return}document.getElementById("checkoutContent").style.display="none";document.getElementById("successBox").style.display="block"}catch(e){console.error(e);alert("Connection error. Please try again.")}}
-function finishOrder(){cart=[];updateCart();document.getElementById("checkoutBox").style.display="none";document.getElementById("checkoutContent").style.display="block";document.getElementById("successBox").style.display="none";["name","phone","city","address"].forEach(id=>document.getElementById(id).value="")}
-async function openAdmin(){const {data:{session}}=await supabaseClient.auth.getSession();if(!session||String(session.user.email||"").toLowerCase()!==ADMIN_EMAIL.toLowerCase()){alert("Admin access denied.");return}document.getElementById("adminBox").style.display="block";loadAdminProducts()}
-function closeAdmin(){document.getElementById("adminBox").style.display="none"}
-function addSize(){const v=document.getElementById("sizeInput").value.trim();if(!v)return;v.split(",").map(x=>x.trim()).filter(Boolean).forEach(x=>{if(!sizes.includes(x))sizes.push(x)});document.getElementById("sizeInput").value="";renderChips("sizeChips",sizes,"removeSize")}
-function addColor(){const v=document.getElementById("colorInput").value.trim();if(!v)return;v.split(",").map(x=>x.trim()).filter(Boolean).forEach(x=>{if(!colors.includes(x))colors.push(x)});document.getElementById("colorInput").value="";renderChips("colorChips",colors,"removeColor")}
-function renderChips(id,list,fn){document.getElementById(id).innerHTML=list.map((x,i)=>`<span class="chip">${esc(x)} <button onclick="${fn}(${i})">×</button></span>`).join("")}
-function removeSize(i){sizes.splice(i,1);renderChips("sizeChips",sizes,"removeSize")}
-function removeColor(i){colors.splice(i,1);renderChips("colorChips",colors,"removeColor")}
-async function addProduct(){const {data:{session}}=await supabaseClient.auth.getSession();if(!session||String(session.user.email||"").toLowerCase()!==ADMIN_EMAIL.toLowerCase()){alert("Admin access denied.");return}const name=document.getElementById("productName").value.trim(),category=document.getElementById("productCategory").value.trim(),price=Number(document.getElementById("productPrice").value),description=document.getElementById("productDescription").value.trim(),file=document.getElementById("productImage").files[0];if(!name||!category||!price||!file){alert("Please fill Product Name, Category, Price and Image.");return}try{let imageUrl="";const ext=(file.name.split(".").pop()||"jpg").toLowerCase();const path=`${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;const upload=await supabaseClient.storage.from("product-images").upload(path,file,{upsert:false});if(upload.error){alert("Image upload failed: "+upload.error.message);return}const pub=supabaseClient.storage.from("product-images").getPublicUrl(path);imageUrl=pub.data.publicUrl;const {error}=await supabaseClient.from("products").insert({name,category,price,description,image_url:imageUrl,sizes,colors});if(error){console.error(error);alert("Product save failed: "+error.message);return}alert("Product added successfully!");document.getElementById("productName").value="";document.getElementById("productCategory").value="";document.getElementById("productPrice").value="";document.getElementById("productDescription").value="";document.getElementById("productImage").value="";sizes=[];colors=[];renderChips("sizeChips",sizes,"removeSize");renderChips("colorChips",colors,"removeColor");await loadProducts();loadAdminProducts()}catch(e){console.error(e);alert("Connection error. Please try again.")}}
-async function loadAdminProducts(){const box=document.getElementById("adminProducts");const {data,error}=await supabaseClient.from("products").select("id,name,price").order("created_at",{ascending:false});if(error){box.innerHTML="Unable to load products.";return}if(!data.length){box.innerHTML="No products yet.";return}box.innerHTML=data.map(p=>`<div class="admin-product-row"><span>${esc(p.name)} — Rs. ${Number(p.price||0).toLocaleString()}</span><button class="small-btn danger" onclick="deleteProduct('${String(p.id).replace(/'/g,"\\'")}')">Delete</button></div>`).join("")}
-async function deleteProduct(id){if(!confirm("Delete this product?"))return;const {error}=await supabaseClient.from("products").delete().eq("id",id);if(error){alert("Delete failed: "+error.message);return}loadProducts();loadAdminProducts()}
+
+let cart=[];
+let authMode="login";
+let sizes=[];
+let colors=[];
+let productsCache=[];
+let currentDetailProduct=null;
+let detailQuantity=1;
+
+function esc(v){
+  return String(v??"").replace(/[&<>'"]/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'
+  }[c]));
+}
+
+function arr(v){
+  return Array.isArray(v)?v:
+    (typeof v==='string'&&v.trim()?v.split(',').map(x=>x.trim()).filter(Boolean):[]);
+}
+
+/* Restore the path preserved by 404.html. */
+function routePathFromLocation(){
+  const params=new URLSearchParams(window.location.search);
+  const recovered=params.get('__rrb_path');
+
+  if(recovered){
+    let path=recovered;
+    try{path=decodeURIComponent(path)}catch(_e){}
+
+    if(!path.startsWith('/'))path='/'+path;
+
+    if(!path.startsWith('//')&&!path.includes('\\')){
+      history.replaceState({},'',path+window.location.hash);
+    }else{
+      history.replaceState({},'','/');
+    }
+  }
+
+  return window.location.pathname;
+}
+
+/* Both /p/ID and /product/ID are supported. */
+function parseProductRoute(path){
+  let decoded=path;
+  try{decoded=decodeURIComponent(path)}catch(_e){}
+  const match=decoded.match(/^\/(?:product|p)\/([^/]+)\/?$/i);
+  return match?match[1]:null;
+}
+
+function productUrl(product){
+  return '/p/'+encodeURIComponent(String(product.id));
+}
+
+function navigateToProduct(id){
+  const product=productsCache.find(p=>String(p.id)===String(id));
+  if(!product){
+    alert('Product is not loaded yet. Please try again.');
+    return;
+  }
+  history.pushState({},'',productUrl(product));
+  renderCurrentRoute();
+}
+
+function goHome(event,sectionId='home'){
+  if(event)event.preventDefault();
+  history.pushState({},'','/'+(sectionId&&sectionId!=='home'?'#'+sectionId:''));
+  renderCurrentRoute();
+
+  if(sectionId){
+    setTimeout(()=>document.getElementById(sectionId)?.scrollIntoView({behavior:'smooth'}),0);
+  }
+}
+
+function showHomeSection(sectionId){
+  history.pushState({},'','/#'+sectionId);
+  renderCurrentRoute();
+  setTimeout(()=>document.getElementById(sectionId)?.scrollIntoView({behavior:'smooth'}),0);
+}
+
+function renderCurrentRoute(){
+  const path=routePathFromLocation();
+  const productId=parseProductRoute(path);
+
+  const hero=document.getElementById('home');
+  const listing=document.getElementById('products');
+  const contact=document.getElementById('contact');
+  const footer=document.querySelector('footer');
+  const detail=document.getElementById('productDetail');
+
+  if(!productId){
+    hero.classList.remove('hidden');
+    listing.classList.remove('hidden');
+    contact.classList.remove('hidden');
+    footer.classList.remove('hidden');
+    detail.classList.add('hidden');
+    detail.innerHTML='';
+    document.title='RR Brothers | Online Store';
+
+    if(window.location.hash){
+      setTimeout(()=>document.getElementById(window.location.hash.slice(1))?.scrollIntoView(),0);
+    }
+    return;
+  }
+
+  hero.classList.add('hidden');
+  listing.classList.add('hidden');
+  contact.classList.add('hidden');
+  footer.classList.add('hidden');
+  detail.classList.remove('hidden');
+
+  const product=productsCache.find(p=>String(p.id)===String(productId));
+
+  if(!product){
+    detail.innerHTML='<div class="not-found"><h1>Product not found</h1><p>This product link may be incorrect or the product may no longer be available.</p><a href="/" onclick="goHome(event)">Back to Store</a></div>';
+    document.title='Product Not Found | RR Brothers';
+    return;
+  }
+
+  currentDetailProduct=product;
+  detailQuantity=1;
+  renderProductDetail(product);
+  document.title=(product.name||'Product')+' | RR Brothers';
+}
+
+function renderProductDetail(product){
+  const detail=document.getElementById('productDetail');
+  const image=product.image_url||'https://via.placeholder.com/700x700/111111/ffffff?text=RR+Brothers';
+  const ps=arr(product.sizes);
+  const pc=arr(product.colors);
+
+  const sizeHtml=ps.length
+    ?'<label class="option-label" for="detailSize">Size</label><select id="detailSize" class="option-select"><option value="">Select Size</option>'+
+      ps.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('')+'</select>'
+    :'';
+
+  const colorHtml=pc.length
+    ?'<label class="option-label" for="detailColor">Color</label><select id="detailColor" class="option-select"><option value="">Select Color</option>'+
+      pc.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('')+'</select>'
+    :'';
+
+  const message='Assalam-o-Alaikum RR Brothers, mujhe '+(product.name||'is product')+' ke bare mein maloomat chahiye.';
+
+  detail.innerHTML=
+    '<a class="detail-back" href="/" onclick="goHome(event,\\'products\\')">← Back to products</a>'+
+    '<div class="detail-layout">'+
+      '<div><img class="detail-image" src="'+esc(image)+'" alt="'+esc(product.name||'Product')+'" onerror="this.src=\\'https://via.placeholder.com/700x700/111111/ffffff?text=RR+Brothers\\'"></div>'+
+      '<div class="detail-info">'+
+        '<div class="detail-category">'+esc(product.category||'')+'</div>'+
+        '<h1>'+esc(product.name||'Product')+'</h1>'+
+        '<div class="price">Rs. '+Number(product.price||0).toLocaleString()+'</div>'+
+        '<p class="description">'+esc(product.description||'')+'</p>'+
+        sizeHtml+colorHtml+
+        '<div class="detail-quantity"><strong>Quantity</strong>'+
+          '<button type="button" onclick="changeDetailQuantity(-1)" aria-label="Decrease quantity">−</button>'+
+          '<span id="detailQuantity">1</span>'+
+          '<button type="button" onclick="changeDetailQuantity(1)" aria-label="Increase quantity">+</button>'+
+        '</div>'+
+        '<button class="add" onclick="addDetailToCart()">Add to Cart</button>'+
+        '<a class="whatsapp-btn" href="https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(message)+'" target="_blank" rel="noopener noreferrer">Ask about this product on WhatsApp</a>'+
+      '</div>'+
+    '</div>';
+}
+
+function changeDetailQuantity(change){
+  detailQuantity=Math.max(1,Math.min(99,detailQuantity+change));
+  const el=document.getElementById('detailQuantity');
+  if(el)el.textContent=detailQuantity;
+}
+
+function addDetailToCart(){
+  if(!currentDetailProduct)return;
+
+  const product=currentDetailProduct;
+  const ps=arr(product.sizes);
+  const pc=arr(product.colors);
+  const size=document.getElementById('detailSize')?.value||'';
+  const color=document.getElementById('detailColor')?.value||'';
+
+  if(ps.length&&!size){
+    alert('Please select a size.');
+    return;
+  }
+
+  if(pc.length&&!color){
+    alert('Please select a color.');
+    return;
+  }
+
+  addToCart(product,Number(product.price||0),size,color,detailQuantity);
+  openCart();
+}
+
+async function loadProducts(){
+  const container=document.getElementById('productsContainer');
+
+  try{
+    const {data,error}=await supabaseClient
+      .from('products')
+      .select('*')
+      .order('created_at',{ascending:false});
+
+    if(error){
+      console.error(error);
+      container.innerHTML='<div class="no-products">Unable to load products.</div>';
+      return;
+    }
+
+    productsCache=data||[];
+
+    if(!productsCache.length){
+      container.innerHTML='<div class="no-products">No products available yet.</div>';
+      renderCurrentRoute();
+      return;
+    }
+
+    container.innerHTML='';
+
+    productsCache.forEach(product=>{
+      const image=product.image_url||'https://via.placeholder.com/600x500/111111/ffffff?text=RR+Brothers';
+      const price=Number(product.price||0);
+      const card=document.createElement('article');
+      card.className='product';
+
+      card.innerHTML=
+        '<a class="product-link" href="'+esc(productUrl(product))+'" aria-label="View '+esc(product.name||'product')+'">'+
+          '<img class="product-image" src="'+esc(image)+'" alt="'+esc(product.name||'Product')+'" onerror="this.src=\\'https://via.placeholder.com/600x500/111111/ffffff?text=RR+Brothers\\'">'+
+          '<h3>'+esc(product.name||'Product')+'</h3>'+
+        '</a>'+
+        '<div class="category">'+esc(product.category||'')+'</div>'+
+        '<div class="description">'+esc(product.description||'')+'</div>'+
+        '<div class="price">Rs. '+price.toLocaleString()+'</div>'+
+        '<button class="add" type="button">View Product</button>';
+
+      card.querySelector('.product-link').addEventListener('click',event=>{
+        event.preventDefault();
+        navigateToProduct(product.id);
+      });
+
+      card.querySelector('.add').addEventListener('click',()=>navigateToProduct(product.id));
+      container.appendChild(card);
+    });
+
+    renderCurrentRoute();
+  }catch(e){
+    console.error(e);
+    container.innerHTML='<div class="no-products">Connection error. Please try again.</div>';
+  }
+}
+
+function addToCart(productOrName,price,size='',color='',quantity=1){
+  const product=typeof productOrName==='object'&&productOrName!==null?productOrName:null;
+  const name=product?(product.name||'Product'):productOrName;
+  const productId=product?String(product.id??''):'';
+
+  const existing=cart.find(x=>
+    x.productId===productId&&
+    x.name===name&&
+    x.size===size&&
+    x.color===color
+  );
+
+  if(existing){
+    existing.quantity+=quantity;
+  }else{
+    cart.push({productId,name,price:Number(price)||0,size,color,quantity});
+  }
+
+  updateCart();
+}
+
+function updateCart(){
+  let count=0;
+  let total=0;
+
+  cart.forEach(i=>{
+    count+=i.quantity;
+    total+=i.price*i.quantity;
+  });
+
+  document.getElementById('count').innerText=count;
+  document.getElementById('total').innerText=total.toLocaleString();
+}
+
+function openCart(){
+  let html='';
+
+  if(!cart.length){
+    html='<p>Your cart is empty.</p>';
+  }else{
+    cart.forEach((item,index)=>{
+      html+=
+        '<div class="cart-item"><strong>'+esc(item.name)+'</strong><br>Rs. '+
+        Number(item.price).toLocaleString()+
+        (item.size?'<div class="cart-options">Size: '+esc(item.size)+'</div>':'')+
+        (item.color?'<div class="cart-options">Color: '+esc(item.color)+'</div>':'')+
+        '<div class="quantity">'+
+          '<button onclick="changeQuantity('+index+',-1)" aria-label="Decrease quantity">−</button>'+
+          '<span>'+item.quantity+'</span>'+
+          '<button onclick="changeQuantity('+index+',1)" aria-label="Increase quantity">+</button>'+
+          '<button class="remove" onclick="removeItem('+index+')">Remove</button>'+
+        '</div></div>';
+    });
+  }
+
+  document.getElementById('items').innerHTML=html;
+  document.getElementById('cartBox').style.display='block';
+  updateCart();
+}
+
+function closeCart(){
+  document.getElementById('cartBox').style.display='none';
+}
+
+function changeQuantity(index,change){
+  if(!cart[index])return;
+  cart[index].quantity+=change;
+  if(cart[index].quantity<=0)cart.splice(index,1);
+  updateCart();
+  openCart();
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  updateCart();
+  openCart();
+}
+
+function openCheckout(){
+  if(!cart.length){
+    alert('Your cart is empty!');
+    return;
+  }
+
+  let html='';
+  let total=0;
+
+  cart.forEach(i=>{
+    const sub=i.price*i.quantity;
+    total+=sub;
+
+    html+=
+      '<p><strong>'+esc(i.name)+'</strong> × '+i.quantity+
+      (i.size?'<br>Size: '+esc(i.size):'')+
+      (i.color?'<br>Color: '+esc(i.color):'')+
+      '<br><strong>Rs. '+sub.toLocaleString()+'</strong></p>';
+  });
+
+  document.getElementById('checkoutItems').innerHTML=html;
+  document.getElementById('checkoutTotal').innerText=total.toLocaleString();
+  document.getElementById('checkoutBox').style.display='block';
+  closeCart();
+}
+
+function closeCheckout(){
+  document.getElementById('checkoutBox').style.display='none';
+}
+
+async function placeOrder(){
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const city=document.getElementById('city').value.trim();
+  const address=document.getElementById('address').value.trim();
+
+  if(!name||!phone||!city||!address){
+    alert('Please fill in all delivery details.');
+    return;
+  }
+
+  if(phone.replace(/\D/g,'').length<10){
+    alert('Please enter a valid phone number.');
+    return;
+  }
+
+  const total=cart.reduce((s,i)=>s+i.price*i.quantity,0);
+
+  try{
+    const payload={name,phone,city,address,total,status:'new',items:cart};
+    let result=await supabaseClient.from('orders').insert(payload);
+
+    if(result.error&&String(result.error.message||'').toLowerCase().includes('items')){
+      delete payload.items;
+      result=await supabaseClient.from('orders').insert(payload);
+    }
+
+    if(result.error){
+      console.error(result.error);
+      alert('Unable to save your order. Please try again.');
+      return;
+    }
+
+    document.getElementById('checkoutContent').style.display='none';
+    document.getElementById('successBox').style.display='block';
+  }catch(e){
+    console.error(e);
+    alert('Connection error. Please try again.');
+  }
+}
+
+function finishOrder(){
+  cart=[];
+  updateCart();
+  document.getElementById('checkoutBox').style.display='none';
+  document.getElementById('checkoutContent').style.display='block';
+  document.getElementById('successBox').style.display='none';
+
+  ['name','phone','city','address'].forEach(id=>{
+    document.getElementById(id).value='';
+  });
+}
+
+async function openAdmin(){
+  const {data:{session}}=await supabaseClient.auth.getSession();
+
+  if(!session||String(session.user.email||'').toLowerCase()!==ADMIN_EMAIL.toLowerCase()){
+    alert('Admin access denied.');
+    return;
+  }
+
+  document.getElementById('adminBox').style.display='block';
+  loadAdminProducts();
+}
+
+function closeAdmin(){
+  document.getElementById('adminBox').style.display='none';
+}
+
+function addSize(){
+  const v=document.getElementById('sizeInput').value.trim();
+  if(!v)return;
+
+  v.split(',').map(x=>x.trim()).filter(Boolean).forEach(x=>{
+    if(!sizes.includes(x))sizes.push(x);
+  });
+
+  document.getElementById('sizeInput').value='';
+  renderChips('sizeChips',sizes,'removeSize');
+}
+
+function addColor(){
+  const v=document.getElementById('colorInput').value.trim();
+  if(!v)return;
+
+  v.split(',').map(x=>x.trim()).filter(Boolean).forEach(x=>{
+    if(!colors.includes(x))colors.push(x);
+  });
+
+  document.getElementById('colorInput').value='';
+  renderChips('colorChips',colors,'removeColor');
+}
+
+function renderChips(id,list,fn){
+  document.getElementById(id).innerHTML=list.map((x,i)=>
+    '<span class="chip">'+esc(x)+' <button onclick="'+fn+'('+i+')">×</button></span>'
+  ).join('');
+}
+
+function removeSize(i){
+  sizes.splice(i,1);
+  renderChips('sizeChips',sizes,'removeSize');
+}
+
+function removeColor(i){
+  colors.splice(i,1);
+  renderChips('colorChips',colors,'removeColor');
+}
+
+async function addProduct(){
+  const {data:{session}}=await supabaseClient.auth.getSession();
+
+  if(!session||String(session.user.email||'').toLowerCase()!==ADMIN_EMAIL.toLowerCase()){
+    alert('Admin access denied.');
+    return;
+  }
+
+  const name=document.getElementById('productName').value.trim();
+  const category=document.getElementById('productCategory').value.trim();
+  const price=Number(document.getElementById('productPrice').value);
+  const description=document.getElementById('productDescription').value.trim();
+  const file=document.getElementById('productImage').files[0];
+
+  if(!name||!category||!Number.isFinite(price)||price<=0||!file){
+    alert('Please fill Product Name, Category, a valid Price and Image.');
+    return;
+  }
+
+  try{
+    const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
+    const path=Date.now()+'-'+Math.random().toString(36).slice(2)+'.'+ext;
+
+    const upload=await supabaseClient.storage.from('product-images').upload(path,file,{upsert:false});
+
+    if(upload.error){
+      alert('Image upload failed: '+upload.error.message);
+      return;
+    }
+
+    const pub=supabaseClient.storage.from('product-images').getPublicUrl(path);
+
+    const {error}=await supabaseClient.from('products').insert({
+      name,
+      category,
+      price,
+      description,
+      image_url:pub.data.publicUrl,
+      sizes,
+      colors
+    });
+
+    if(error){
+      console.error(error);
+      alert('Product save failed: '+error.message);
+      return;
+    }
+
+    alert('Product added successfully!');
+
+    ['productName','productCategory','productPrice','productDescription','productImage'].forEach(id=>{
+      document.getElementById(id).value='';
+    });
+
+    sizes=[];
+    colors=[];
+    renderChips('sizeChips',sizes,'removeSize');
+    renderChips('colorChips',colors,'removeColor');
+
+    await loadProducts();
+    loadAdminProducts();
+  }catch(e){
+    console.error(e);
+    alert('Connection error. Please try again.');
+  }
+}
+
+async function loadAdminProducts(){
+  const box=document.getElementById('adminProducts');
+
+  const {data,error}=await supabaseClient
+    .from('products')
+    .select('id,name,price')
+    .order('created_at',{ascending:false});
+
+  if(error){
+    box.innerHTML='Unable to load products.';
+    return;
+  }
+
+  if(!data||!data.length){
+    box.innerHTML='No products yet.';
+    return;
+  }
+
+  box.innerHTML=data.map(p=>
+    '<div class="admin-product-row"><span>'+esc(p.name)+' — Rs. '+Number(p.price||0).toLocaleString()+
+    '</span><button class="small-btn danger" onclick="deleteProduct('+JSON.stringify(String(p.id))+')">Delete</button></div>'
+  ).join('');
+}
+
+async function deleteProduct(id){
+  if(!confirm('Delete this product?'))return;
+
+  const {error}=await supabaseClient.from('products').delete().eq('id',id);
+
+  if(error){
+    alert('Delete failed: '+error.message);
+    return;
+  }
+
+  await loadProducts();
+  loadAdminProducts();
+}
+
+window.addEventListener('popstate',renderCurrentRoute);
 loadProducts();
 </script>
 </body>
